@@ -15,3 +15,6 @@ yt-dlp -a VideoLinks.txt -o "TikTok/%(id)s.%(ext)s"
 - [x] improve link scraper
 - [x] save txt with name of user and number of links
 - [ ] yt-dlp download names of files only the ID
+- [x] use wget instead of yt-dlp
+- [ ] error handling when not http status 200
+- [ ] create txt of failed urls to try again later
