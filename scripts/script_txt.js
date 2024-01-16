@@ -1,18 +1,28 @@
 // Select all the anchor tags within the page
 var links = document.querySelectorAll('a');
 
-// Initialize an empty array to store the links
-var videoLinks = [];
+// Initialize a Set to store the links
+var videoLinks = new Set();
 
-// Loop through the links and add their href attributes to the array if they contain "video"
+// Get the current URL
+var url = window.location.href;
+
+// Extract the username from the URL
+var username = url.split('/')[4];
+
+// Loop through the links and add their href attributes to the Set if they contain "video"
 for (var i = 0; i < links.length; i++) {
- if (links[i].href.includes('video')) {
-     videoLinks.push(links[i].href);
- }
+  // Skip links that don't contain "video"
+  if (!links[i].href.includes('video')) continue;
+  
+  // Skip the popular videos link
+  if (links[i].href === 'https://urlebird.com/videos/popular/') continue;
+  
+  videoLinks.add(links[i].href);
 }
 
 // Create a blob from the video links joined with newlines
-var blob = new Blob([videoLinks.join('\n')], {type: 'text/plain'});
+var blob = new Blob([Array.from(videoLinks).join('\n')], {type: 'text/plain'});
 
 // Create a temporary anchor element
 var tempAnchor = document.createElement('a');
@@ -21,7 +31,7 @@ var tempAnchor = document.createElement('a');
 tempAnchor.href = URL.createObjectURL(blob);
 
 // Set the download attribute of the anchor element to the desired filename
-tempAnchor.download = 'VideoLinks.txt';
+tempAnchor.download = username + '.txt';
 
 // Append the anchor element to the body
 document.body.appendChild(tempAnchor);
