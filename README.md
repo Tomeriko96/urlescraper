@@ -5,7 +5,11 @@ Inspired by this [repo](https://github.com/Dinoosauro/node-tiktok-to-ytdlp/tree/
 For now two scripts:
 - script to scroll to end
 - script to fetch all links and download txt file
-- bash command to use yt-dlp 
+- bash command to use yt-dlp
+
+```
+yt-dlp -a VideoLinks.txt -o "TikTok/%(id)s.%(ext)s"
+```
 
 ## TODO:
 - [x] improve link scraper
