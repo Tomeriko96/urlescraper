@@ -1,5 +1,8 @@
 # urlescraper
 
+
+[![CodeFactor](https://www.codefactor.io/repository/github/Tomeriko96/urlescraper/badge)](https://www.codefactor.io/repository/github/Tomeriko96/urlescraper)
+
 `urlescraper` is a tool inspired by the repositories [node-tiktok-to-ytdlp](https://github.com/Dinoosauro/node-tiktok-to-ytdlp/tree/main) and [tiktok-to-ytdlp](https://github.com/Dinoosauro/tiktok-to-ytdlp) that allows you to scrape video links from urlebird.com, a TikTok alternative, and download the videos to your local machine.
 
 ## How It Works
